@@ -1,8 +1,8 @@
 <h1 align="center">Friend Request App - backend</h1>
 
--   Api Documentation can be seen <a href="https://www.getpostman.com/collections/1c173a10d86b8c23149a">HERE </a>.
-    (Automatic generated in postman) . For Link to work, you must have an account on postman. Otherwise, contact me to
-    send screen shots, or something simillar.
+- Api Documentation can be seen <a href="https://web.postman.co/collections/7260459-7bd15a46-2393-43f8-b9a8-eb6072ea1796?workspace=47235d8d-d049-4496-89fb-2b990306cba7">HERE </a>.
+  (Automatic generated in postman) . For Link to work, you must have an account on postman. Otherwise, contact me to
+  send screen shots, or something simillar.
 
 Ruuning Locally:
 
@@ -74,8 +74,8 @@ This will create friend request with data we provided, and it will set request_s
 5. In order to Answer on friend with request we must logout with the first user.
    To do that, follow the next proccedure:
 
-    send POST request to http://localhost:8000/api/logout
-    with Header parameter: Authorization: bearer token you've been provided during login" (same token as for send request proccedure.)
+   send POST request to http://localhost:8000/api/logout
+   with Header parameter: Authorization: bearer token you've been provided during login" (same token as for send request proccedure.)
 
 Now, you are logged out of app, and can again login in with different user. Il assume you will login
 with the user to whom we've send friend request.
@@ -96,8 +96,9 @@ _Note: User can accept or deny friend request only if the status of friend reque
 'deny' or 'accepted', user will not be able to change it. (That functionality is not implemented).
 Also if the request from user with id 1 to id 2 was sent, once it is accepted or declined, it will not be
 possible for user to send the friend request to the same user again._
+<br/><br/>
 
------ END OF FILE -----
+<hr />
 
-Best regards,
+Best regards, <br/>
 Antonije Ljubisa
