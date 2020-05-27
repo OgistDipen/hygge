@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
     return [
-        'flush sesion' => $request->session()->flush(),
         'Status' => 'Success',
         'Hygge assignment' => 'App backend',
         'Uptime' => (microtime(true) - LARAVEL_START)

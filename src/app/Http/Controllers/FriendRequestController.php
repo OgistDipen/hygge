@@ -55,6 +55,10 @@ class FriendRequestController extends Controller
         //get friend_request by id
         $check_pending_request = \App\FriendRequest::where('request_status', 'sent')->find($id);
 
+        if (!$check_pending_request) {
+            return response()->json(['Error Message' => 'Forbidden action.'], 403);
+        }
+
         //check if its the right user and if friend request exists
         if (Auth::user()->id === $check_pending_request->receiver_user_id && $check_pending_request) {
 
@@ -76,6 +80,10 @@ class FriendRequestController extends Controller
     {
         // get friend request by id
         $check_pending_request = \App\FriendRequest::where('request_status', 'sent')->find($id);
+
+        if (!$check_pending_request) {
+            return response()->json(['Error Message' => 'Forbidden action.'], 403);
+        }
 
         //check if its the right user and if friend request exists
         if (Auth::user()->id === $check_pending_request->receiver_user_id && $check_pending_request) {
