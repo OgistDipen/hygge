@@ -64,7 +64,7 @@ this is my .env file on local machine (sharing this kind of info is fine in this
 
    composer install
 
-\* Note, it's neccesery for you to have following folders in you laravel app(in this care src folder):
+\* Note, it's necessary for you to have following folders in you laravel app(in this care src folder):
 
     src
         storage
