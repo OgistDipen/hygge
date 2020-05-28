@@ -1,10 +1,11 @@
+<div style="text-align:justify">
 <h1 align="center">Friend Request App - backend</h1>
 
--   Api Documentation can be seen <a href="https://web.postman.co/collections/7260459-7bd15a46-2393-43f8-b9a8-eb6072ea1796?workspace=47235d8d-d049-4496-89fb-2b990306cba7">HERE </a>.
-    (Automatic generated in postman) . For Link to work, you must have an account on postman. Otherwise, contact me to
+-   Api Documentation can be seen <a  href="https://web.postman.co/collections/7260459-7bd15a46-2393-43f8-b9a8-eb6072ea1796?workspace=47235d8d-d049-4496-89fb-2b990306cba7" target="_blank">HERE </a>.
+    (Generated in postman) . For Link to work, you must have an account on postman. Otherwise, contact me to
     send screen shots, or something simillar.
 
-Ruuning Locally:
+Running App Locally:
 
 1. Download or clone git project.
 2. Create .env file in src folder and configure database parameters.
@@ -60,7 +61,11 @@ this is my .env file on local machine (sharing this kind of info is fine in this
 
     	JWT_SECRET=RbJp1xN3qSelSUil81zikAgHdRLEp0LtuSs8VoB9zuuuxnam0rukNmRKnuoBpTlMySnCSQYsxiL9iMhXfMYLNxwzrR09CAMptY46vomHmGZ6lAvRFadakrM7H9zEgJOl
 
-\*Note, it's neccesery for you to have following folders in you laravel app:
+3. navigate into src folder and run command for installing dependencies:
+
+    composer install
+
+\* Note, it's neccesery for you to have following folders in you laravel app(in this care src folder):
 
     src
         storage
@@ -69,23 +74,27 @@ this is my .env file on local machine (sharing this kind of info is fine in this
                 cache
                 sessions
 
-    If any of folders in framework folder is missing, create it mannualy.
+    If any of the folders in framework folder is missing, create it mannualy.
 
-3. (Optional) run:
-   php artisan migrate
+3. (Optional) run: <br />
+   php artisan migrate <br />
    php artisan db:seed
 
 Now you should be all set up for checking out app.
 
-For authentication, I was using this <a href="https://jwt-auth.readthedocs.io/en/develop/">JWT Library </a>.
+Start app by: php artisan serve
+
+<br />
+<hr />
 
 <h3>Docker instructions </h3>
+<br />
 
 1. download or clone git project
 2. Go into src folder and create .env file.
    Configure it according to docker-compose.yml file
 
-My working example is as follows (your's should be the same).
+My working example is as follows (yours should be the same).
 
         APP_NAME=Laravel
         APP_ENV=local
@@ -147,30 +156,24 @@ My working example is as follows (your's should be the same).
             mysql is on 4306 port
 
 
-        4. go into src folder and dependencies:
+        4. go into src folder and install dependencies:
 
             composer install
 
         5. Fix storage permission problem with:
 
-            chown -R www-data:www-data *
-            chown www-data:www-data storage/logs/
-            chown www-data:www-data storage/framework/sessions/
-            chown www-data:www-data storage/framework/views
-            chmod -R gu+w storage
             chmod -R guo+w storage
-            php artisan cache:clear
 
         6. Log into phpmyadmin container
 
-            hes running on  localhost:8899
+            go to  http://localhost:8899
 
             credentials:
                 phpmyadmin server: 172.17.0.1:4306
                 phpmyadmin username: root
                 phpmyadmin password: secret
 
-        7. bash into php container and migrate and seed database;
+        7. bash into php container - migrate and seed database;
 
             to bash:
             docker exec -it php /bin/sh
@@ -181,7 +184,7 @@ My working example is as follows (your's should be the same).
             php artisan db:seed
 
 
-            If you encounter on problems, try this solution:
+            If you encounter any problem, try this solution:
 
             php artisan config:clear
             php artisan cache:clear
@@ -191,11 +194,19 @@ My working example is as follows (your's should be the same).
             php artisan migrate:refresh
             php artisan db:seed
 
-<h2 align="center">Steps to follow</h2>
+
+
+    		Now go to localhost:8080 and app will be app and running. Check functionality via postman.
+
+<br />
+<hr />
+<h2 align="center">App Functionality - Steps to follow</h2>
+<br />
+
+For authentication, I was using this <a href="https://jwt-auth.readthedocs.io/en/develop/">JWT Library </a>.
 
 <legend>Notes:</legend>
-My local address is http://127.0.0.1:8000, so I'l be continuing explanation assuimming your local address is the same, if not, than replace
-my address with whatever your's is.
+My local address is http://127.0.0.1:8000, so I'l be continuing explanation assuimming your local address is the same, if not, than replace my address with whatever yours is. In docker, address is set to localhost:8080.
 
 Also I will be using <a href="https://www.postman.com/">Postman</a> application for sending http requests.
 
@@ -262,14 +273,12 @@ To deny request send POST request to: http://localhost:8000/api/friend-request/d
 with Header parameter: Authorization: bearer token you've been provided during login" (same token as for send request proccedure.)
 So if you are the one to whom this request was sent, you will be able to deny it like this, if not you will be provided with error msg.
 
-6. After we logged in with second user. We can Accept or Deny friend request.
-
 To accept request send POST request to: http://localhost:8000/api/friend-request/accept/1 this 1 in URL is id of friend-request
 with Header parameter: Authorization: bearer token you've been provided during login" (same token as for send request proccedure.)
 So if you are the one to whom this request was sent, you will be able to accept it like this, if not you will be provided with error msg.
 
 _Note: User can accept or deny friend request only if the status of friend request is 'sent'. If the status is equal to
-'deny' or 'accepted', user will not be able to change it. (That functionality is not implemented).
+'dennied' or 'accepted', user will not be able to change it, I tought that would be the best for purpose of this examination.
 Also if the request from user with id 1 to id 2 was sent, once it is accepted or declined, it will not be
 possible for user to send the friend request to the same user again._
 <br/><br/>
@@ -278,3 +287,5 @@ possible for user to send the friend request to the same user again._
 
 Best regards, <br/>
 Antonije Ljubisa
+
+</div>
