@@ -81,7 +81,8 @@ this is my .env file on local machine (sharing this kind of info is fine in this
 
 Now you should be all set up for checking out app.
 
-Start app by: php artisan serve
+Start app by: <br />
+php artisan serve
 
 <br />
 <hr />
@@ -146,12 +147,12 @@ My working example is as follows (yours should be the same).
 
 3.  go back to hygge folder and:
 
-docker-compose build
+docker-compose build <br />
 docker-compose up -d
 
 if that fails, try
 
-sudo docker-compose build
+sudo docker-compose build <br />
 sudo docker-compose up -d
 
 server is running on localhost:8080 port
@@ -160,46 +161,51 @@ mysql is on 4306 port
 
 4. go into src folder and install dependencies:
 
-composer install
+   composer install
 
 5. Fix storage permission problem with:
 
-chmod -R guo+w storage
+   chmod -R guo+w storage
 
 6. Log into phpmyadmin container
 
 go to http://localhost:8899
 
-credentials:
-phpmyadmin server: 172.17.0.1:4306
-phpmyadmin username: root
-phpmyadmin password: secret
+credentials: <br />
+
+phpmyadmin server: 172.17.0.1:4306 <br />
+
+phpmyadmin username: root <br />
+
+phpmyadmin password: secret <br />
 
 7. bash into php container - migrate and seed database;
 
-to bash:
-docker exec -it php /bin/sh
+to bash: <br />
 
-if fails, try with sudo:
+docker exec -it php /bin/sh <br />
 
-sudo docker exec -it php /bin/sh
+if fails, try with sudo: <br />
 
-then,
+sudo docker exec -it php /bin/sh <br />
 
-php artisan migrate
-php artisan db:seed
+then, <br />
 
-If you encounter any problem, try this solution:
+php artisan migrate <br />
 
-php artisan config:clear
-php artisan cache:clear
+php artisan db:seed <br />
 
-and after that try again
+If you encounter any problem, try this solution: <br />
 
-php artisan migrate:refresh
-php artisan db:seed
+php artisan config:clear <br />
+php artisan cache:clear <br />
 
-Now go to the localhost:8080 and app will be app and running. Check functionality via postman.
+and after that try again <br />
+
+php artisan migrate:refresh <br />
+php artisan db:seed <br />
+
+Now go to the localhost:8080 and app will be app and running. Check functionality via postman. <br />
 
 <br />
 <hr />
@@ -215,78 +221,77 @@ Also I will be using <a href="https://www.postman.com/">Postman</a> application 
 
 <h3>Features</h3>
 
-Sign up will register new user in users table.
+    Sign up will register new user in users table.
 
-1. To Sign up, follow the next proccedure:
+1.  To Sign up, follow the next proccedure:
 
-Send POST request to http://localhost:8000/api/register
-with body form-data parameters: (Example parameters)
+    Send POST request to http://localhost:8000/api/register with body form-data parameters: (Example parameters)
 
-    'name'          => 'Monkey D. Luffy',
-    'email'         => 'luffy@gmail.com',
-    'password'      => 'password'
+        'name'          => 'Monkey D. Luffy',
+        'email'         => 'luffy@gmail.com',
+        'password'      => 'password'
 
-That's it. You registered a new user.
+    That's it. You registered a new user.
 
-2. To Sign in (Login), follow the next proccedure:
+2.  To Sign in (Login), follow the next proccedure:
 
-send POST request to http://localhost:8000/api/login
-with body form-data parameters: (Use data of the user you created- my example)
+    send POST request to http://localhost:8000/api/login
+    with body form-data parameters: (Use data of the user you created- my example)
 
-    'email'         => 'luffy@gmail.com',
-    'password'      => 'password'
+        'email'         => 'luffy@gmail.com',
+        'password'      => 'password'
 
-If everything is right, you will be provided with jwt(token).
-That token will be used as users Authorization and authentication over the server.
+    If everything is right, you will be provided with jwt(token).
+    That token will be used as users Authorization and authentication over the server.
 
-3. You need at least two users to create friend request, so be sure to create them.
+3.  You need at least two users to create friend request, so be sure to create them.
 
-4. Once there are at least two users, we can login with one of them (following step 2),
-   and send friend request to other user. To do that, follow next proccedure:
+4.  Once there are at least two users, we can login with one of them (following step 2),
+    and send friend request to other user. To do that, follow next proccedure:
 
-send POST request to http://localhost:8000/api/friend-request/send
-with Headers parameter: (Example)
-Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.  
- eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsI
-mlhdCI6MTU5MDUwOTA1OCwiZXhwIjoxNTkwNTEyNjU4LCJuYmYiOjE1OTA1MD
-kwNTgsImp0aSI6IkVPRWI3VzQwUTdtTDFmUngiLCJzdWIiOjEsInBydiI6Ijg
-3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.Moj0p
-XiXiZy3zQYHqyk7UwrgdhGz6rJxhkpNJTHThS4
+        		send POST request to http://localhost:8000/api/friend-request/send
+        		with Headers parameter: (Example)
+        		Authorization: bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.
+        		eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsI
+        		mlhdCI6MTU5MDUwOTA1OCwiZXhwIjoxNTkwNTEyNjU4LCJuYmYiOjE1OTA1MD
+        		kwNTgsImp0aSI6IkVPRWI3VzQwUTdtTDFmUngiLCJzdWIiOjEsInBydiI6Ijg
+        		3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.Moj0p
+        		XiXiZy3zQYHqyk7UwrgdhGz6rJxhkpNJTHThS4
 
-Remember the value of authorization parameter must be "bearer token you've been providede during login".
+        	Remember the value of authorization parameter must be "bearer token you've been providede during login".
 
-And with body form-data parameters: (Example)
+        	And with body form-data parameters: (Example)
 
-    'receiver_user_id'      => 2
+    'receiver_user_id' => 2
 
-This will create friend request with data we provided, and it will set request_status to it's default value 'sent'.
+        	This will create friend request with data we provided, and it will set request_status to it's default value 'sent'.
 
-5. In order to Answer on friend with request we must logout with the first user.
-   To do that, follow the next proccedure:
+5.  In order to Answer on friend with request we must logout with the first user.
+    To do that, follow the next proccedure:
 
-   send POST request to http://localhost:8000/api/logout
-   with Header parameter: Authorization: bearer token you've been provided during login" (same token as for send request proccedure.)
+        	send POST request to http://localhost:8000/api/logout
+        	with Header parameter: Authorization: bearer token you've been provided during login" (same token as for send request proccedure.)
 
-Now, you are logged out of app, and can again login in with different user. Il assume you will login
-with the user to whom we've send friend request.
+        	Now, you are logged out of app, and can again login in with different user. Il assume you will login
+        	with the user to whom we've send friend request.
 
-6. After we logged in with second user. We can Accept or Deny friend request.
+6.  After we logged in with second user. We can Accept or Deny friend request.
 
-To deny request send POST request to: http://localhost:8000/api/friend-request/deny/1 this 1 in URL is id of friend-request
-with Header parameter: Authorization: bearer token you've been provided during login" (same token as for send request proccedure.)
-So if you are the one to whom this request was sent, you will be able to deny it like this, if not you will be provided with error msg.
+    To deny request send POST request to: http://localhost:8000/api/friend-request/deny/1 this 1 in URL is id of friend-request
+    with Header parameter: Authorization: bearer token you've been provided during login" (same token as for send request proccedure.)
+    So if you are the one to whom this request was sent, you will be able to deny it like this, if not you will be provided with error msg.
 
-To accept request send POST request to: http://localhost:8000/api/friend-request/accept/1 this 1 in URL is id of friend-request
-with Header parameter: Authorization: bearer token you've been provided during login" (same token as for send request proccedure.)
-So if you are the one to whom this request was sent, you will be able to accept it like this, if not you will be provided with error msg.
+    To accept request send POST request to: http://localhost:8000/api/friend-request/accept/1 this 1 in URL is id of friend-request
+    with Header parameter: Authorization: bearer token you've been provided during login" (same token as for send request proccedure.)
+    So if you are the one to whom this request was sent, you will be able to accept it like this, if not you will be provided with error msg.
 
-_Note: User can accept or deny friend request only if the status of friend request is 'sent'. If the status is equal to
-'dennied' or 'accepted', user will not be able to change it, I tought that would be the best for purpose of this examination.
-Also if the request from user with id 1 to id 2 was sent, once it is accepted or declined, it will not be
-possible for user to send the friend request to the same user again._
-<br/><br/>
+    _Note: User can accept or deny friend request only if the status of friend request is 'sent'. If the status is equal to
+    'dennied' or 'accepted', user will not be able to change it, I tought that would be the best for purpose of this examination.
+    Also if the request from user with id 1 to id 2 was sent, once it is accepted or declined, it will not be
+    possible for user to send the friend request to the same user again._
+    <br/><br/>
 
-<hr />
+    <hr />
 
-Best regards, <br/>
-Antonije Ljubisa
+    Best regards, <br/>
+    Antonije Ljubisa
