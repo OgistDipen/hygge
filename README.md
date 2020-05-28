@@ -82,6 +82,8 @@ this is my .env file on local machine (sharing this kind of info is fine in this
 
 Now you should be all set up for checking out app.
 
+Start app by: php artisan serve
+
 <br />
 <hr />
 
@@ -160,13 +162,7 @@ My working example is as follows (yours should be the same).
 
         5. Fix storage permission problem with:
 
-            chown -R www-data:www-data *
-            chown www-data:www-data storage/logs/
-            chown www-data:www-data storage/framework/sessions/
-            chown www-data:www-data storage/framework/views
-            chmod -R gu+w storage
             chmod -R guo+w storage
-            php artisan cache:clear
 
         6. Log into phpmyadmin container
 
@@ -197,6 +193,10 @@ My working example is as follows (yours should be the same).
 
             php artisan migrate:refresh
             php artisan db:seed
+
+
+
+    		Now go to localhost:8080 and app will be app and running. Check functionality via postman.
 
 <br />
 <hr />
@@ -273,14 +273,12 @@ To deny request send POST request to: http://localhost:8000/api/friend-request/d
 with Header parameter: Authorization: bearer token you've been provided during login" (same token as for send request proccedure.)
 So if you are the one to whom this request was sent, you will be able to deny it like this, if not you will be provided with error msg.
 
-6. After we logged in with second user. We can Accept or Deny friend request.
-
 To accept request send POST request to: http://localhost:8000/api/friend-request/accept/1 this 1 in URL is id of friend-request
 with Header parameter: Authorization: bearer token you've been provided during login" (same token as for send request proccedure.)
 So if you are the one to whom this request was sent, you will be able to accept it like this, if not you will be provided with error msg.
 
 _Note: User can accept or deny friend request only if the status of friend request is 'sent'. If the status is equal to
-'deny' or 'accepted', user will not be able to change it, I tought that would be the best for now.
+'dennied' or 'accepted', user will not be able to change it, I tought that would be the best for purpose of this examination.
 Also if the request from user with id 1 to id 2 was sent, once it is accepted or declined, it will not be
 possible for user to send the friend request to the same user again._
 <br/><br/>
