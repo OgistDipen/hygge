@@ -4,7 +4,7 @@
   (Generated in postman) . For Link to work, you must have an account on postman. Otherwise, contact me to
   send screen shots, or something simillar.
 
-Running App Locally:
+<h3>Running App locally - instructions </h3>
 
 1. Download or clone git project.
 2. Create .env file in src folder and configure database parameters.
