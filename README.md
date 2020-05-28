@@ -145,11 +145,15 @@ My working example is as follows (yours should be the same).
 
     	JWT_SECRET=RbJp1xN3qSelSUil81zikAgHdRLEp0LtuSs8VoB9zuuuxnam0rukNmRKnuoBpTlMySnCSQYsxiL9iMhXfMYLNxwzrR09CAMptY46vomHmGZ6lAvRFadakrM7H9zEgJOl
 
-        3. go back to hygge folder and:
+3.  go back to hygge folder and:
 
             docker-compose build
             docker-compose up -d
 
+        	if that fails, try
+
+        	sudo docker-compose build
+        	sudo docker-compose up -d
 
             server is running on localhost:8080 port
             phpmyadmin is running on localhost:8899 port
@@ -178,6 +182,10 @@ My working example is as follows (yours should be the same).
             to bash:
             docker exec -it php /bin/sh
 
+    		if fails, try with sudo:
+
+            sudo docker exec -it php /bin/sh
+
             then,
 
             php artisan migrate
@@ -194,9 +202,7 @@ My working example is as follows (yours should be the same).
             php artisan migrate:refresh
             php artisan db:seed
 
-
-
-    		Now go to localhost:8080 and app will be app and running. Check functionality via postman.
+    		Now go to the localhost:8080 and app will be app and running. Check functionality via postman.
 
 <br />
 <hr />
