@@ -14,4 +14,14 @@ class FriendRequest extends Model
         'receiver_user_id',
         'request_status',
     ];
+
+
+    public function senderUser()
+    {
+        return $this->belongsToMany('App\FriendRequest', 'sender_user_id');
+    }
+    public function receiverUser()
+    {
+        return $this->belongsToMany('App\FriendRequest', 'receiver_user_id');
+    }
 }
