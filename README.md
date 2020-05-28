@@ -2,10 +2,10 @@
 <h1 align="center">Friend Request App - backend</h1>
 
 - Api Documentation can be seen <a  href="https://web.postman.co/collections/7260459-7bd15a46-2393-43f8-b9a8-eb6072ea1796?workspace=47235d8d-d049-4496-89fb-2b990306cba7" target="_blank">HERE </a>.
-  (Automatic generated in postman) . For Link to work, you must have an account on postman. Otherwise, contact me to
+  (Generated in postman) . For Link to work, you must have an account on postman. Otherwise, contact me to
   send screen shots, or something simillar.
 
-Ruuning Locally:
+Running App Locally:
 
 1. Download or clone git project.
 2. Create .env file in src folder and configure database parameters.
@@ -61,7 +61,11 @@ this is my .env file on local machine (sharing this kind of info is fine in this
 
     	JWT_SECRET=RbJp1xN3qSelSUil81zikAgHdRLEp0LtuSs8VoB9zuuuxnam0rukNmRKnuoBpTlMySnCSQYsxiL9iMhXfMYLNxwzrR09CAMptY46vomHmGZ6lAvRFadakrM7H9zEgJOl
 
-\*Note, it's neccesery for you to have following folders in you laravel app:
+3. navigate into src folder and run command for installing dependencies:
+
+   composer install
+
+\* Note, it's neccesery for you to have following folders in you laravel app(in this care src folder):
 
     src
         storage
@@ -150,7 +154,7 @@ My working example is as follows (yours should be the same).
             mysql is on 4306 port
 
 
-        4. go into src folder and dependencies:
+        4. go into src folder and install dependencies:
 
             composer install
 
@@ -166,14 +170,14 @@ My working example is as follows (yours should be the same).
 
         6. Log into phpmyadmin container
 
-            hes running on  localhost:8899
+            go to  http://localhost:8899
 
             credentials:
                 phpmyadmin server: 172.17.0.1:4306
                 phpmyadmin username: root
                 phpmyadmin password: secret
 
-        7. bash into php container and migrate and seed database;
+        7. bash into php container - migrate and seed database;
 
             to bash:
             docker exec -it php /bin/sh
@@ -184,7 +188,7 @@ My working example is as follows (yours should be the same).
             php artisan db:seed
 
 
-            If you encounter on problems, try this solution:
+            If you encounter any problem, try this solution:
 
             php artisan config:clear
             php artisan cache:clear
@@ -196,7 +200,7 @@ My working example is as follows (yours should be the same).
 
 <br />
 <hr />
-<h2 align="center">Steps to follow</h2>
+<h2 align="center">App Functionality - Steps to follow</h2>
 <br />
 
 For authentication, I was using this <a href="https://jwt-auth.readthedocs.io/en/develop/">JWT Library </a>.
