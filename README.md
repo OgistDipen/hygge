@@ -1,4 +1,3 @@
-<div style="text-align:justify">
 <h1 align="center">Friend Request App - backend</h1>
 
 - Api Documentation can be seen <a  href="https://web.postman.co/collections/7260459-7bd15a46-2393-43f8-b9a8-eb6072ea1796?workspace=47235d8d-d049-4496-89fb-2b990306cba7" target="_blank">HERE </a>.
@@ -12,54 +11,54 @@ Running App Locally:
 
 this is my .env file on local machine (sharing this kind of info is fine in this situation.):
 
-        APP_NAME=Laravel
-        APP_ENV=local
-        APP_KEY=base64:m0W15G/sD1uazI99c5EWX8/XXaW9AzwXiCyjG4JNGps=
-        APP_DEBUG=true
-        APP_URL=http://localhost
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=base64:m0W15G/sD1uazI99c5EWX8/XXaW9AzwXiCyjG4JNGps=
+APP_DEBUG=true
+APP_URL=http://localhost
 
-    	LOG_CHANNEL=stack
+LOG_CHANNEL=stack
 
-    	DB_CONNECTION=mysql
-    	DB_HOST=127.0.0.1
-    	DB_PORT=3306
-    	DB_DATABASE=hygge
-    	DB_USERNAME=root
-    	DB_PASSWORD=luffy9
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=hygge
+DB_USERNAME=root
+DB_PASSWORD=luffy9
 
-    	BROADCAST_DRIVER=log
-    	CACHE_DRIVER=file
-    	QUEUE_CONNECTION=sync
-    	SESSION_DRIVER=file
-    	SESSION_LIFETIME=120
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
 
-    	REDIS_HOST=127.0.0.1
-    	REDIS_PASSWORD=null
-    	REDIS_PORT=6379
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
 
-    	MAIL_MAILER=smtp
-    	MAIL_HOST=smtp.mailtrap.io
-    	MAIL_PORT=2525
-    	MAIL_USERNAME=null
-    	MAIL_PASSWORD=null
-    	MAIL_ENCRYPTION=null
-    	MAIL_FROM_ADDRESS=null
-    	MAIL_FROM_NAME="${APP_NAME}"
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=null
+MAIL_FROM_NAME="\${APP_NAME}"
 
-    	AWS_ACCESS_KEY_ID=
-    	AWS_SECRET_ACCESS_KEY=
-    	AWS_DEFAULT_REGION=us-east-1
-    	AWS_BUCKET=
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
 
-    	PUSHER_APP_ID=
-    	PUSHER_APP_KEY=
-    	PUSHER_APP_SECRET=
-    	PUSHER_APP_CLUSTER=mt1
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=mt1
 
-    	MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
-    	MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
-    	JWT_SECRET=RbJp1xN3qSelSUil81zikAgHdRLEp0LtuSs8VoB9zuuuxnam0rukNmRKnuoBpTlMySnCSQYsxiL9iMhXfMYLNxwzrR09CAMptY46vomHmGZ6lAvRFadakrM7H9zEgJOl
+JWT_SECRET=RbJp1xN3qSelSUil81zikAgHdRLEp0LtuSs8VoB9zuuuxnam0rukNmRKnuoBpTlMySnCSQYsxiL9iMhXfMYLNxwzrR09CAMptY46vomHmGZ6lAvRFadakrM7H9zEgJOl
 
 3. navigate into src folder and run command for installing dependencies:
 
@@ -96,113 +95,111 @@ Start app by: php artisan serve
 
 My working example is as follows (yours should be the same).
 
-        APP_NAME=Laravel
-        APP_ENV=local
-        APP_KEY=base64:m0W15G/sD1uazI99c5EWX8/XXaW9AzwXiCyjG4JNGps=
-        APP_DEBUG=true
-        APP_URL=http://localhost
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=base64:m0W15G/sD1uazI99c5EWX8/XXaW9AzwXiCyjG4JNGps=
+APP_DEBUG=true
+APP_URL=http://localhost
 
-    	LOG_CHANNEL=stack
+LOG_CHANNEL=stack
 
-    	DB_CONNECTION=mysql
-    	DB_HOST=mysql
-    	DB_PORT=3306
-    	DB_DATABASE=hygge
-    	DB_USERNAME=root
-    	DB_PASSWORD=secret
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=hygge
+DB_USERNAME=root
+DB_PASSWORD=secret
 
-    	BROADCAST_DRIVER=log
-    	CACHE_DRIVER=file
-    	QUEUE_CONNECTION=sync
-    	SESSION_DRIVER=file
-    	SESSION_LIFETIME=120
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
 
-    	REDIS_HOST=127.0.0.1
-    	REDIS_PASSWORD=null
-    	REDIS_PORT=6379
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
 
-    	MAIL_MAILER=smtp
-    	MAIL_HOST=smtp.mailtrap.io
-    	MAIL_PORT=2525
-    	MAIL_USERNAME=null
-    	MAIL_PASSWORD=null
-    	MAIL_ENCRYPTION=null
-    	MAIL_FROM_ADDRESS=null
-    	MAIL_FROM_NAME="${APP_NAME}"
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=null
+MAIL_FROM_NAME="\${APP_NAME}"
 
-    	AWS_ACCESS_KEY_ID=
-    	AWS_SECRET_ACCESS_KEY=
-    	AWS_DEFAULT_REGION=us-east-1
-    	AWS_BUCKET=
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
 
-    	PUSHER_APP_ID=
-    	PUSHER_APP_KEY=
-    	PUSHER_APP_SECRET=
-    	PUSHER_APP_CLUSTER=mt1
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=mt1
 
-    	MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
-    	MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
-    	JWT_SECRET=RbJp1xN3qSelSUil81zikAgHdRLEp0LtuSs8VoB9zuuuxnam0rukNmRKnuoBpTlMySnCSQYsxiL9iMhXfMYLNxwzrR09CAMptY46vomHmGZ6lAvRFadakrM7H9zEgJOl
+JWT_SECRET=RbJp1xN3qSelSUil81zikAgHdRLEp0LtuSs8VoB9zuuuxnam0rukNmRKnuoBpTlMySnCSQYsxiL9iMhXfMYLNxwzrR09CAMptY46vomHmGZ6lAvRFadakrM7H9zEgJOl
 
 3.  go back to hygge folder and:
 
-            docker-compose build
-            docker-compose up -d
+docker-compose build
+docker-compose up -d
 
-        	if that fails, try
+if that fails, try
 
-        	sudo docker-compose build
-        	sudo docker-compose up -d
+sudo docker-compose build
+sudo docker-compose up -d
 
-            server is running on localhost:8080 port
-            phpmyadmin is running on localhost:8899 port
-            mysql is on 4306 port
+server is running on localhost:8080 port
+phpmyadmin is running on localhost:8899 port
+mysql is on 4306 port
 
+4. go into src folder and install dependencies:
 
-        4. go into src folder and install dependencies:
+composer install
 
-            composer install
+5. Fix storage permission problem with:
 
-        5. Fix storage permission problem with:
+chmod -R guo+w storage
 
-            chmod -R guo+w storage
+6. Log into phpmyadmin container
 
-        6. Log into phpmyadmin container
+go to http://localhost:8899
 
-            go to  http://localhost:8899
+credentials:
+phpmyadmin server: 172.17.0.1:4306
+phpmyadmin username: root
+phpmyadmin password: secret
 
-            credentials:
-                phpmyadmin server: 172.17.0.1:4306
-                phpmyadmin username: root
-                phpmyadmin password: secret
+7. bash into php container - migrate and seed database;
 
-        7. bash into php container - migrate and seed database;
+to bash:
+docker exec -it php /bin/sh
 
-            to bash:
-            docker exec -it php /bin/sh
+if fails, try with sudo:
 
-    		if fails, try with sudo:
+sudo docker exec -it php /bin/sh
 
-            sudo docker exec -it php /bin/sh
+then,
 
-            then,
+php artisan migrate
+php artisan db:seed
 
-            php artisan migrate
-            php artisan db:seed
+If you encounter any problem, try this solution:
 
+php artisan config:clear
+php artisan cache:clear
 
-            If you encounter any problem, try this solution:
+and after that try again
 
-            php artisan config:clear
-            php artisan cache:clear
+php artisan migrate:refresh
+php artisan db:seed
 
-            and after that try again
-
-            php artisan migrate:refresh
-            php artisan db:seed
-
-    		Now go to the localhost:8080 and app will be app and running. Check functionality via postman.
+Now go to the localhost:8080 and app will be app and running. Check functionality via postman.
 
 <br />
 <hr />
@@ -293,5 +290,3 @@ possible for user to send the friend request to the same user again._
 
 Best regards, <br/>
 Antonije Ljubisa
-
-</div>
