@@ -1,7 +1,7 @@
 <div style="text-align:justify">
 <h1 align="center">Friend Request App - backend</h1>
 
-- Api Documentation can be seen <a href="https://web.postman.co/collections/7260459-7bd15a46-2393-43f8-b9a8-eb6072ea1796?workspace=47235d8d-d049-4496-89fb-2b990306cba7">HERE </a>.
+- Api Documentation can be seen <a target="_blank" href="https://web.postman.co/collections/7260459-7bd15a46-2393-43f8-b9a8-eb6072ea1796?workspace=47235d8d-d049-4496-89fb-2b990306cba7">HERE </a>.
   (Automatic generated in postman) . For Link to work, you must have an account on postman. Otherwise, contact me to
   send screen shots, or something simillar.
 
