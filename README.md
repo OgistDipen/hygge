@@ -7,13 +7,189 @@
 Ruuning Locally:
 
 1. Download or clone git project.
-2. Configure database parameters in .env file.
-3. Run following code in terminal/shell for migrating tables 'users' and 'friend_requests': php artisan migrate
-4. (This step is optional) Run following code in terminal/shell for seeding newly created tables: php artisan db:seed
+2. Create .env file in src folder and configure database parameters.
+
+this is my .env file on local machine (sharing this kind of info is fine in this situation.):
+
+        APP_NAME=Laravel
+        APP_ENV=local
+        APP_KEY=base64:m0W15G/sD1uazI99c5EWX8/XXaW9AzwXiCyjG4JNGps=
+        APP_DEBUG=true
+        APP_URL=http://localhost
+
+    	LOG_CHANNEL=stack
+
+    	DB_CONNECTION=mysql
+    	DB_HOST=127.0.0.1
+    	DB_PORT=3306
+    	DB_DATABASE=hygge
+    	DB_USERNAME=root
+    	DB_PASSWORD=luffy9
+
+    	BROADCAST_DRIVER=log
+    	CACHE_DRIVER=file
+    	QUEUE_CONNECTION=sync
+    	SESSION_DRIVER=file
+    	SESSION_LIFETIME=120
+
+    	REDIS_HOST=127.0.0.1
+    	REDIS_PASSWORD=null
+    	REDIS_PORT=6379
+
+    	MAIL_MAILER=smtp
+    	MAIL_HOST=smtp.mailtrap.io
+    	MAIL_PORT=2525
+    	MAIL_USERNAME=null
+    	MAIL_PASSWORD=null
+    	MAIL_ENCRYPTION=null
+    	MAIL_FROM_ADDRESS=null
+    	MAIL_FROM_NAME="${APP_NAME}"
+
+    	AWS_ACCESS_KEY_ID=
+    	AWS_SECRET_ACCESS_KEY=
+    	AWS_DEFAULT_REGION=us-east-1
+    	AWS_BUCKET=
+
+    	PUSHER_APP_ID=
+    	PUSHER_APP_KEY=
+    	PUSHER_APP_SECRET=
+    	PUSHER_APP_CLUSTER=mt1
+
+    	MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+    	MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+    	JWT_SECRET=RbJp1xN3qSelSUil81zikAgHdRLEp0LtuSs8VoB9zuuuxnam0rukNmRKnuoBpTlMySnCSQYsxiL9iMhXfMYLNxwzrR09CAMptY46vomHmGZ6lAvRFadakrM7H9zEgJOl
+
+\*Note, it's neccesery for you to have following folders in you laravel app:
+
+    src
+        storage
+            framework
+                views
+                cache
+                sessions
+
+    If any of folders in framework folder is missing, create it mannualy.
+
+3. (Optional) run:
+   php artisan migrate
+   php artisan db:seed
 
 Now you should be all set up for checking out app.
 
 For authentication, I was using this <a href="https://jwt-auth.readthedocs.io/en/develop/">JWT Library </a>.
+
+<h3>Docker instructions </h3>
+
+1. download or clone git project
+2. Go into src folder and create .env file.
+   Configure it according to docker-compose.yml file
+
+My working example is as follows (your's should be the same).
+
+        APP_NAME=Laravel
+        APP_ENV=local
+        APP_KEY=base64:m0W15G/sD1uazI99c5EWX8/XXaW9AzwXiCyjG4JNGps=
+        APP_DEBUG=true
+        APP_URL=http://localhost
+
+    	LOG_CHANNEL=stack
+
+    	DB_CONNECTION=mysql
+    	DB_HOST=mysql
+    	DB_PORT=3306
+    	DB_DATABASE=hygge
+    	DB_USERNAME=root
+    	DB_PASSWORD=secret
+
+    	BROADCAST_DRIVER=log
+    	CACHE_DRIVER=file
+    	QUEUE_CONNECTION=sync
+    	SESSION_DRIVER=file
+    	SESSION_LIFETIME=120
+
+    	REDIS_HOST=127.0.0.1
+    	REDIS_PASSWORD=null
+    	REDIS_PORT=6379
+
+    	MAIL_MAILER=smtp
+    	MAIL_HOST=smtp.mailtrap.io
+    	MAIL_PORT=2525
+    	MAIL_USERNAME=null
+    	MAIL_PASSWORD=null
+    	MAIL_ENCRYPTION=null
+    	MAIL_FROM_ADDRESS=null
+    	MAIL_FROM_NAME="${APP_NAME}"
+
+    	AWS_ACCESS_KEY_ID=
+    	AWS_SECRET_ACCESS_KEY=
+    	AWS_DEFAULT_REGION=us-east-1
+    	AWS_BUCKET=
+
+    	PUSHER_APP_ID=
+    	PUSHER_APP_KEY=
+    	PUSHER_APP_SECRET=
+    	PUSHER_APP_CLUSTER=mt1
+
+    	MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+    	MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+    	JWT_SECRET=RbJp1xN3qSelSUil81zikAgHdRLEp0LtuSs8VoB9zuuuxnam0rukNmRKnuoBpTlMySnCSQYsxiL9iMhXfMYLNxwzrR09CAMptY46vomHmGZ6lAvRFadakrM7H9zEgJOl
+
+        3. go back to hygge folder and:
+
+            docker-compose build
+            docker-compose up -d
+
+
+            server is running on localhost:8080 port
+            phpmyadmin is running on localhost:8899 port
+            mysql is on 4306 port
+
+
+        4. go into src folder and dependencies:
+
+            composer install
+
+        5. Fix storage permission problem with:
+
+            chown -R www-data:www-data *
+            chown www-data:www-data storage/logs/
+            chown www-data:www-data storage/framework/sessions/
+            chown www-data:www-data storage/framework/views
+            chmod -R gu+w storage
+            chmod -R guo+w storage
+            php artisan cache:clear
+
+        6. Log into phpmyadmin container
+
+            hes running on  localhost:8899
+
+            credentials:
+                phpmyadmin server: 172.17.0.1:4306
+                phpmyadmin username: root
+                phpmyadmin password: secret
+
+        7. bash into php container and migrate and seed database;
+
+            to bash:
+            docker exec -it php /bin/sh
+
+            then,
+
+            php artisan migrate
+            php artisan db:seed
+
+
+            If you encounter on problems, try this solution:
+
+            php artisan config:clear
+            php artisan cache:clear
+
+            and after that try again
+
+            php artisan migrate:refresh
+            php artisan db:seed
 
 <h2 align="center">Steps to follow</h2>
 
@@ -63,7 +239,7 @@ kwNTgsImp0aSI6IkVPRWI3VzQwUTdtTDFmUngiLCJzdWIiOjEsInBydiI6Ijg
 3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.Moj0p
 XiXiZy3zQYHqyk7UwrgdhGz6rJxhkpNJTHThS4
 
-\*Remember the value of authorization parameter must be "bearer token you've been providede during login".
+Remember the value of authorization parameter must be "bearer token you've been providede during login".
 
 And with body form-data parameters: (Example)
 
