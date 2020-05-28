@@ -38,9 +38,9 @@ class FriendRequestController extends Controller
 
             //If friend request dont exist, create it.
             $send_request = \App\FriendRequest::create([
-                'sender_user_id' => $user->id,
-                'receiver_user_id' => $request->input('receiver_user_id'),
-                'request_status' => 'sent'
+                'sender_user_id'        => $user->id,
+                'receiver_user_id'      => $request->input('receiver_user_id'),
+                'request_status'        => 'sent'
             ]);
 
 
@@ -60,7 +60,7 @@ class FriendRequestController extends Controller
         }
 
         //check if its the right user and if friend request exists
-        if (Auth::user()->id === $check_pending_request->receiver_user_id && $check_pending_request) {
+        if (Auth::user()->id === $check_pending_request->receiver_user_id) {
 
             // Update request_status from sent to denied.
             \App\FriendRequest::where('id', $id)->update([
@@ -86,7 +86,7 @@ class FriendRequestController extends Controller
         }
 
         //check if its the right user and if friend request exists
-        if (Auth::user()->id === $check_pending_request->receiver_user_id && $check_pending_request) {
+        if (Auth::user()->id === $check_pending_request->receiver_user_id) {
 
             // Update request to accepted.
             \App\FriendRequest::where('id', $id)->update([

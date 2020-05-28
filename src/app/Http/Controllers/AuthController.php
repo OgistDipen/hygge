@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 
+
 class AuthController extends Controller
 {
     public function __construct()
@@ -26,25 +27,26 @@ class AuthController extends Controller
     public function respondWithToken($token)
     {
         return response()->json([
-            'token' => $token,
-            'accept_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+
+            'token'          => $token,
+            'accept_type'    => 'bearer',
+            'expires_in'     => auth()->factory()->getTTL() * 60
         ]);
     }
 
     public function logout()
     {
         auth()->logout();
-        return response()->json(['Message', 'User successfully logged out'], 200);
+        return response()->json(['Message' => 'User successfully logged out'], 200);
     }
 
 
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|min:3|max:100',
-            'email' => 'required|max:255|min:9|unique:users',
-            'password' => 'required|min:6|max:100',
+            'name'       => 'required|min:3|max:100',
+            'email'      => 'required|max:255|min:9|unique:users',
+            'password'   => 'required|min:6|max:100',
         ]);
 
         if ($validator->fails()) {
@@ -52,14 +54,14 @@ class AuthController extends Controller
         }
 
         $user = \App\User::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
+            'name'       => $request->input('name'),
+            'email'      => $request->input('email'),
+            'password'   => Hash::make($request->input('password')),
         ]);
 
         return response()->json([
-            'message' => 'Registration was successful.',
-            'user' => $user
+            'message'    => 'Registration was successful.',
+            'user'       => $user
         ], 201);
     }
 }
